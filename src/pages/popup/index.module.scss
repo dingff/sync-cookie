@@ -1,0 +1,14 @@
+.content {
+  width: 600px;
+  height: 300px;
+  padding: 10px;
+  .oper {
+    padding-bottom: 10px;
+    text-align: right;
+  }
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+  }
+}

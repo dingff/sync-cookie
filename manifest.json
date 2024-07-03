@@ -1,0 +1,28 @@
+{
+  "description": "Sync cookie between tabs.",
+  "icons": {
+    "128": "./logo/logo.png",
+    "16": "./logo/logo.png",
+    "32": "./logo/logo.png",
+    "48": "./logo/logo.png"
+  },
+  "action": {
+    "default_popup": "./popup.html"
+  },
+  "content_scripts": [
+    {
+      "all_frames": true,
+      "js": ["./js/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "./js/background.js"
+  },
+  "manifest_version": 3,
+  "name": "Sync Cookie",
+  "permissions": ["tabs", "storage", "cookies"],
+  "host_permissions": ["<all_urls>"],
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "version": "0.0.1"
+}

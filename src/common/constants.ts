@@ -1,0 +1,1 @@
+export const STORE_KEY = 'SYNC_COOKIE_RULES'
