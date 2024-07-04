@@ -63,8 +63,10 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
   // Check if the changed cookie belongs to the source URL
   if (changeInfo.cookie && changeInfo.cause !== 'overwrite') {
     store.get(STORE_KEY).then((list) => {
-      list.forEach(({ sourceUrl, targetUrl }) => {
+      list.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
         if (
+          enabled &&
+          auto &&
           sourceUrl &&
           targetUrl &&
           changeInfo.cookie.domain.includes(new URL(sourceUrl).hostname)
@@ -79,8 +81,14 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
 chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab.url) {
     store.get(STORE_KEY).then((list) => {
-      list.forEach(({ sourceUrl, targetUrl }) => {
-        if (sourceUrl && targetUrl && tab.url.includes(new URL(sourceUrl).hostname)) {
+      list.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
+        if (
+          enabled &&
+          auto &&
+          sourceUrl &&
+          targetUrl &&
+          tab.url.includes(new URL(sourceUrl).hostname)
+        ) {
           syncCookies(sourceUrl, targetUrl)
         }
       })
