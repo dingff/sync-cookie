@@ -60,7 +60,7 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
     storeValue: () => {
       store.get(STORE_KEY).then((list) => {
         const next = list?.map((item) => {
-          if (request.sourceUrl.includes(new URL(item.sourceUrl).hostname)) {
+          if (request.sourceUrl.includes(new URL(item.sourceUrl).host)) {
             console.log('storeValue', request)
             return {
               ...item,
@@ -70,30 +70,12 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
           return item
         })
         store.set(STORE_KEY, next)
+        sendResponse({ status: 'success' })
       })
     },
   }
   handles[request.action]()
   return true
-})
-
-chrome.cookies.onChanged.addListener((changeInfo) => {
-  // Check if the changed cookie belongs to the source URL
-  if (changeInfo.cookie && changeInfo.cause !== 'overwrite') {
-    store.get(STORE_KEY).then((list) => {
-      list?.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
-        if (
-          enabled &&
-          auto &&
-          sourceUrl &&
-          targetUrl &&
-          changeInfo.cookie.domain.includes(new URL(sourceUrl).hostname)
-        ) {
-          syncCookies(sourceUrl, targetUrl)
-        }
-      })
-    })
-  }
 })
 
 chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
@@ -105,7 +87,7 @@ chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
           auto &&
           sourceUrl &&
           targetUrl &&
-          tab.url.includes(new URL(sourceUrl).hostname)
+          tab.url.includes(new URL(sourceUrl).host)
         ) {
           syncCookies(sourceUrl, targetUrl)
         }

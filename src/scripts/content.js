@@ -29,7 +29,7 @@ store.get(STORE_KEY).then((list) => {
       sourceUrl &&
       targetUrl &&
       syncData &&
-      targetUrl.includes(window.location.origin)
+      targetUrl.includes(window.location.host)
     ) {
       window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
     }
