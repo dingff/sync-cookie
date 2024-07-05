@@ -46,16 +46,34 @@ function syncCookies(sourceUrl, targetUrl) {
 }
 
 chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
-  if (request.action === 'syncCookies') {
-    syncCookies(request.sourceUrl, request.targetUrl)
-      .then(() => {
-        sendResponse({ status: 'success' })
+  const handles = {
+    syncCookies: () => {
+      syncCookies(request.sourceUrl, request.targetUrl)
+        .then(() => {
+          sendResponse({ status: 'success' })
+        })
+        .catch((err) => {
+          console.log('catch', err)
+          sendResponse({ status: 'error', message: err.message })
+        })
+    },
+    storeValue: () => {
+      store.get(STORE_KEY).then((list) => {
+        const next = list?.map((item) => {
+          if (request.sourceUrl.includes(new URL(item.sourceUrl).hostname)) {
+            console.log('storeValue', request)
+            return {
+              ...item,
+              syncData: request.value,
+            }
+          }
+          return item
+        })
+        store.set(STORE_KEY, next)
       })
-      .catch((err) => {
-        console.log('catch', err)
-        sendResponse({ status: 'error', message: err.message })
-      })
+    },
   }
+  handles[request.action]()
   return true
 })
 
@@ -63,7 +81,7 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
   // Check if the changed cookie belongs to the source URL
   if (changeInfo.cookie && changeInfo.cause !== 'overwrite') {
     store.get(STORE_KEY).then((list) => {
-      list.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
+      list?.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
         if (
           enabled &&
           auto &&
@@ -81,7 +99,7 @@ chrome.cookies.onChanged.addListener((changeInfo) => {
 chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
   if (changeInfo.status === 'complete' && tab.url) {
     store.get(STORE_KEY).then((list) => {
-      list.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
+      list?.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
         if (
           enabled &&
           auto &&

@@ -22,6 +22,8 @@ export default defineConfig({
     entry: {
       background: './src/scripts/background.js',
       content: './src/scripts/content.js',
+      beforeLoad: './src/scripts/beforeLoad.js',
+      afterLoad: './src/scripts/afterLoad.js',
     },
   },
   clickToComponent: false,

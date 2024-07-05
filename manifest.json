@@ -1,24 +1,31 @@
 {
   "description": "Sync cookie between tabs.",
   "icons": {
-    "128": "./logo/logo.png",
-    "16": "./logo/logo.png",
-    "32": "./logo/logo.png",
-    "48": "./logo/logo.png"
+    "128": "logo/logo.png",
+    "16": "logo/logo.png",
+    "32": "logo/logo.png",
+    "48": "logo/logo.png"
   },
   "action": {
-    "default_popup": "./popup.html"
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
       "all_frames": true,
-      "js": ["./js/content.js"],
-      "matches": ["<all_urls>"]
+      "js": ["js/content.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_start"
     }
   ],
   "background": {
-    "service_worker": "./js/background.js"
+    "service_worker": "js/background.js"
   },
+  "web_accessible_resources": [
+    {
+      "resources": ["js/beforeLoad.js", "js/afterLoad.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
   "manifest_version": 3,
   "name": "Sync Cookie",
   "permissions": ["tabs", "storage", "cookies"],
