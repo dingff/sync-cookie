@@ -62,6 +62,7 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
 })
 
 chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
+  // sync cookies when source url is updated
   if (changeInfo.status === 'complete' && tab.url) {
     store.get(STORE_KEY).then((list) => {
       list?.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {

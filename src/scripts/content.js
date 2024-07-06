@@ -13,7 +13,7 @@ window.addEventListener('message', (event) => {
   if (event.source === window && event.data.type === 'GET_VALUE') {
     store.get(STORE_KEY).then((list) => {
       const next = list?.map((item) => {
-        if (event.data.sourceUrl.includes(new URL(item.sourceUrl).origin)) {
+        if (item.sourceUrl && event.data.sourceUrl.includes(new URL(item.sourceUrl).origin)) {
           console.log('Get sync data:', event.data.value)
           return {
             ...item,
@@ -28,14 +28,12 @@ window.addEventListener('message', (event) => {
 })
 
 store.get(STORE_KEY).then((list) => {
-  list?.forEach(({ sourceUrl, targetUrl, enabled, auto, syncData }) => {
+  list?.forEach(({ targetUrl, enabled, syncData }) => {
     if (
       enabled &&
-      auto &&
-      sourceUrl &&
       targetUrl &&
       syncData &&
-      targetUrl.includes(window.location.origin)
+      window.location.origin.includes(new URL(targetUrl).origin)
     ) {
       window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
     }
