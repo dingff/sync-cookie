@@ -13,10 +13,17 @@ window.addEventListener('load', () => injectScript('js/afterLoad.js'))
 
 window.addEventListener('message', (event) => {
   if (event.source === window && event.data.type === 'GET_VALUE') {
-    chrome.runtime.sendMessage({
-      action: 'storeValue',
-      value: event.data.value,
-      sourceUrl: event.data.sourceUrl,
+    store.get(STORE_KEY).then((list) => {
+      const next = list?.map((item) => {
+        if (event.data.sourceUrl.includes(new URL(item.sourceUrl).origin)) {
+          return {
+            ...item,
+            syncData: event.data.value,
+          }
+        }
+        return item
+      })
+      store.set(STORE_KEY, next)
     })
   }
 })
@@ -29,7 +36,7 @@ store.get(STORE_KEY).then((list) => {
       sourceUrl &&
       targetUrl &&
       syncData &&
-      targetUrl.includes(window.location.host)
+      targetUrl.includes(window.location.origin)
     ) {
       window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
     }

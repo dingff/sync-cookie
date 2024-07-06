@@ -57,22 +57,6 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
           sendResponse({ status: 'error', message: err.message })
         })
     },
-    storeValue: () => {
-      store.get(STORE_KEY).then((list) => {
-        const next = list?.map((item) => {
-          if (request.sourceUrl.includes(new URL(item.sourceUrl).host)) {
-            console.log('storeValue', request)
-            return {
-              ...item,
-              syncData: request.value,
-            }
-          }
-          return item
-        })
-        store.set(STORE_KEY, next)
-        sendResponse({ status: 'success' })
-      })
-    },
   }
   handles[request.action]()
   return true
@@ -87,7 +71,7 @@ chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
           auto &&
           sourceUrl &&
           targetUrl &&
-          tab.url.includes(new URL(sourceUrl).host)
+          tab.url.includes(new URL(sourceUrl).origin)
         ) {
           syncCookies(sourceUrl, targetUrl)
         }
