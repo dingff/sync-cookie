@@ -7,15 +7,14 @@ function injectScript(url) {
   document.documentElement.appendChild(script)
 }
 
-injectScript('js/beforeLoad.js')
-
-window.addEventListener('load', () => injectScript('js/afterLoad.js'))
+injectScript('js/inject.js')
 
 window.addEventListener('message', (event) => {
   if (event.source === window && event.data.type === 'GET_VALUE') {
     store.get(STORE_KEY).then((list) => {
       const next = list?.map((item) => {
         if (event.data.sourceUrl.includes(new URL(item.sourceUrl).origin)) {
+          console.log('Get sync data:', event.data.value)
           return {
             ...item,
             syncData: event.data.value,

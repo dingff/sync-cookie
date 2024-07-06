@@ -2,7 +2,7 @@ import { STORE_KEY } from '@/common/constants'
 import store from '@/common/store'
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log('Extension installed')
+  console.log('Extension installed.')
 })
 
 function syncCookies(sourceUrl, targetUrl) {
@@ -34,7 +34,7 @@ function syncCookies(sourceUrl, targetUrl) {
         chrome.cookies.set(cookieDetails, (cookie) => {
           if (chrome.runtime.lastError) {
             reject(chrome.runtime.lastError)
-            console.error(`Error setting cookie: ${chrome.runtime.lastError}.`)
+            console.error('Error setting cookie:', chrome.runtime.lastError)
           } else {
             resolve()
             console.log(`Cookie ${cookie.name} set successfully.`)
@@ -53,7 +53,6 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
           sendResponse({ status: 'success' })
         })
         .catch((err) => {
-          console.log('catch', err)
           sendResponse({ status: 'error', message: err.message })
         })
     },

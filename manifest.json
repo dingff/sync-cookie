@@ -22,7 +22,7 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["js/beforeLoad.js", "js/afterLoad.js"],
+      "resources": ["js/inject.js"],
       "matches": ["<all_urls>"]
     }
   ],
