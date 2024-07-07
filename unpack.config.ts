@@ -18,7 +18,7 @@ export default defineConfig({
   mpa: {
     layout: '@/layouts/mpa/index.tsx',
   },
-  webpackAndRspack: {
+  bundlerConfig: {
     entry: {
       background: './src/scripts/background.js',
       content: './src/scripts/content.js',
