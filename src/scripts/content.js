@@ -35,7 +35,9 @@ store.get(STORE_KEY).then((list) => {
       syncData &&
       window.location.origin.includes(new URL(targetUrl).origin)
     ) {
-      window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
+      setTimeout(() => {
+        window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
+      }, 300)
     }
   })
 })
