@@ -1,4 +1,5 @@
 import { defineConfig } from '@unpackjs/cli'
+import { pluginReact } from '@unpackjs/plugin-react'
 
 export default defineConfig({
   bundler: 'rspack',
@@ -25,5 +26,5 @@ export default defineConfig({
       inject: './src/scripts/inject.js',
     },
   },
-  clickToComponent: false,
+  plugins: [pluginReact()],
 })
