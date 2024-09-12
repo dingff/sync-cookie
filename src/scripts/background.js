@@ -47,7 +47,7 @@ function syncCookies(sourceUrl, targetUrl) {
 
 chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
   const handles = {
-    syncCookies: () => {
+    SYNC_COOKIES: () => {
       syncCookies(request.sourceUrl, request.targetUrl)
         .then(() => {
           sendResponse({ status: 'success' })

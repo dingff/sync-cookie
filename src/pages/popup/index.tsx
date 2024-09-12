@@ -151,7 +151,7 @@ export default function Popup() {
               type="link"
               onClick={() => {
                 chrome.runtime.sendMessage(
-                  { action: 'syncCookies', sourceUrl, targetUrl },
+                  { action: 'SYNC_COOKIES', sourceUrl, targetUrl },
                   (response) => {
                     if (response?.status === 'success') {
                       message.success('已同步')
