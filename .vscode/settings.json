@@ -4,7 +4,7 @@
     "source.organizeImports.biome": "explicit"
   },
   "editor.defaultFormatter": "biomejs.biome",
-  "[less]": {
+  "[scss]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }
