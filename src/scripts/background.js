@@ -1,6 +1,3 @@
-import { STORE_KEY } from '@/common/constants'
-import store from '@/common/store'
-
 chrome.runtime.onInstalled.addListener(() => {
   console.log('Extension installed.')
 })
@@ -59,23 +56,4 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
   }
   handles[request.action]()
   return true
-})
-
-chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
-  // sync cookies when source url is updated
-  if (changeInfo.status === 'complete' && tab.url) {
-    store.get(STORE_KEY).then((list) => {
-      list?.forEach(({ sourceUrl, targetUrl, enabled, auto }) => {
-        if (
-          enabled &&
-          auto &&
-          sourceUrl &&
-          targetUrl &&
-          tab.url.includes(new URL(sourceUrl).origin)
-        ) {
-          syncCookies(sourceUrl, targetUrl)
-        }
-      })
-    })
-  }
 })

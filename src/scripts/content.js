@@ -28,8 +28,9 @@ window.addEventListener('message', (event) => {
 })
 
 store.get(STORE_KEY).then((list) => {
-  list?.forEach(({ targetUrl, enabled, syncData }) => {
+  list?.forEach(({ targetUrl, enabled, syncData, sourceUrl }) => {
     if (enabled && targetUrl && syncData && window.location.origin === new URL(targetUrl).origin) {
+      chrome.runtime.sendMessage({ action: 'SYNC_COOKIES', sourceUrl, targetUrl })
       setTimeout(() => {
         window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
       }, 300)
