@@ -13,7 +13,10 @@ window.addEventListener('message', (event) => {
   if (event.source === window && event.data.type === 'GET_VALUE') {
     store.get(STORE_KEY).then((list) => {
       const next = list?.map((item) => {
-        if (item.sourceUrl && event.data.sourceUrl === new URL(item.sourceUrl).origin) {
+        if (
+          item.sourceUrl &&
+          new URL(event.data.sourceUrl).hostname === new URL(item.sourceUrl).hostname
+        ) {
           console.log('Get sync data:', event.data.value)
           return {
             ...item,
@@ -29,7 +32,8 @@ window.addEventListener('message', (event) => {
 
 store.get(STORE_KEY).then((list) => {
   list?.forEach(({ targetUrl, enabled, syncData, sourceUrl }) => {
-    if (enabled && targetUrl && syncData && window.location.origin === new URL(targetUrl).origin) {
+    // 目标地址需要区分端口
+    if (enabled && sourceUrl && targetUrl && window.location.origin === new URL(targetUrl).origin) {
       chrome.runtime.sendMessage({ action: 'SYNC_COOKIES', sourceUrl, targetUrl })
       setTimeout(() => {
         window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')

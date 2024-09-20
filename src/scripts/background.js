@@ -4,7 +4,8 @@ chrome.runtime.onInstalled.addListener(() => {
 
 function syncCookies(sourceUrl, targetUrl) {
   return new Promise((resolve, reject) => {
-    chrome.cookies.getAll({ url: sourceUrl }, (cookies) => {
+    const u = new URL(sourceUrl)
+    chrome.cookies.getAll({ url: `${u.protocol}//${u.hostname}` }, (cookies) => {
       if (chrome.runtime.lastError) {
         console.log('Error getting cookies:', chrome.runtime.lastError)
         reject(chrome.runtime.lastError)

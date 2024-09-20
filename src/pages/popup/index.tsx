@@ -1,14 +1,17 @@
 import { STORE_KEY } from '@/common/constants'
 import store from '@/common/store'
 import { uuid } from '@/common/utils'
+import { InfoCircleOutlined } from '@ant-design/icons'
 import { useUpdateEffect } from 'ahooks'
 import {
   Button,
   Input,
   Popconfirm,
+  Space,
   Switch,
   Table,
   type TableProps,
+  Tooltip,
   Typography,
   message,
 } from 'antd'
@@ -28,7 +31,14 @@ export default function Popup() {
   const [loading, setLoading] = useState(true)
   const columns: TableProps<ListItem>['columns'] = [
     {
-      title: '源地址',
+      title: (
+        <Space align="center">
+          源地址
+          <Tooltip title="不区分端口">
+            <InfoCircleOutlined />
+          </Tooltip>
+        </Space>
+      ),
       dataIndex: 'sourceUrl',
       key: 'sourceUrl',
       width: 160,
@@ -36,7 +46,7 @@ export default function Popup() {
         const { sourceUrl, isEdit } = record
         return isEdit ? (
           <Input
-            placeholder="请输入源地址"
+            placeholder="http://"
             allowClear
             value={sourceUrl}
             onChange={(e) => {
@@ -58,7 +68,7 @@ export default function Popup() {
         const { targetUrl, isEdit } = record
         return isEdit ? (
           <Input
-            placeholder="请输入目标地址"
+            placeholder="http://"
             allowClear
             value={targetUrl}
             onChange={(e) => {
