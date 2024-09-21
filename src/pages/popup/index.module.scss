@@ -1,5 +1,5 @@
 .content {
-  width: 600px;
+  width: 500px;
   height: 300px;
   padding: 10px;
   .oper {
@@ -9,6 +9,9 @@
   :global {
     .ant-form-item {
       margin-bottom: 0;
+    }
+    .ant-btn-link {
+      padding: 0 7px 0 0;
     }
   }
 }

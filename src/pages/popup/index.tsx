@@ -13,7 +13,6 @@ import {
   type TableProps,
   Tooltip,
   Typography,
-  message,
 } from 'antd'
 import { useEffect, useState } from 'react'
 import styles from './index.module.scss'
@@ -24,7 +23,6 @@ type ListItem = {
   id: string
   isEdit: boolean
   enabled: boolean
-  auto: boolean
 }
 export default function Popup() {
   const [dataSource, setDataSource] = useState<ListItem[]>([])
@@ -41,7 +39,7 @@ export default function Popup() {
       ),
       dataIndex: 'sourceUrl',
       key: 'sourceUrl',
-      width: 160,
+      width: 180,
       render: (_, record, index) => {
         const { sourceUrl, isEdit } = record
         return isEdit ? (
@@ -99,28 +97,11 @@ export default function Popup() {
       },
     },
     {
-      title: '自动同步',
-      dataIndex: 'auto',
-      key: 'auto',
-      width: 60,
-      render: (_, record, index) => {
-        return (
-          <Switch
-            checked={record.auto}
-            onChange={(checked) => {
-              dataSource[index].auto = checked
-              setDataSource([...dataSource])
-            }}
-          />
-        )
-      },
-    },
-    {
       title: '操作',
       key: 'action',
       fixed: 'right',
       render: (_, record, index) => {
-        const { isEdit, id, sourceUrl, targetUrl } = record
+        const { isEdit, id } = record
         return isEdit ? (
           <Button
             type="link"
@@ -157,23 +138,6 @@ export default function Popup() {
                 删除
               </Button>
             </Popconfirm>
-            <Button
-              type="link"
-              onClick={() => {
-                chrome.runtime.sendMessage(
-                  { action: 'SYNC_COOKIES', sourceUrl, targetUrl },
-                  (response) => {
-                    if (response?.status === 'success') {
-                      message.success('已同步')
-                    } else {
-                      message.error(response.message)
-                    }
-                  },
-                )
-              }}
-            >
-              同步
-            </Button>
           </>
         )
       },
@@ -182,7 +146,7 @@ export default function Popup() {
   const handleAdd = () => {
     setDataSource([
       ...dataSource,
-      { sourceUrl: '', targetUrl: '', isEdit: true, id: uuid(8), enabled: true, auto: true },
+      { sourceUrl: '', targetUrl: '', isEdit: true, id: uuid(8), enabled: true },
     ])
   }
   useUpdateEffect(() => {
