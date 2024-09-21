@@ -39,7 +39,7 @@ export default function Popup() {
       ),
       dataIndex: 'sourceUrl',
       key: 'sourceUrl',
-      width: 180,
+      width: 230,
       render: (_, record, index) => {
         const { sourceUrl, isEdit } = record
         return isEdit ? (
@@ -61,7 +61,7 @@ export default function Popup() {
       title: '目标地址',
       dataIndex: 'targetUrl',
       key: 'targetUrl',
-      width: 160,
+      width: 150,
       render: (_, record, index) => {
         const { targetUrl, isEdit } = record
         return isEdit ? (
