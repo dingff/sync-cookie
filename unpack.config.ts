@@ -2,7 +2,6 @@ import { defineConfig } from '@unpackjs/cli'
 import { pluginReact } from '@unpackjs/plugin-react'
 
 export default defineConfig({
-  bundler: 'rspack',
   build: {
     copy: [
       {
