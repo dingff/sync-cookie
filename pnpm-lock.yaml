@@ -43,11 +43,11 @@ importers:
         specifier: ^18.3.0
         version: 18.3.0
       '@unpackjs/cli':
-        specifier: ^1.5.1
-        version: 1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
+        specifier: ^1.5.2
+        version: 1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
       '@unpackjs/plugin-react':
-        specifier: ^1.5.1
-        version: 1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
+        specifier: ^1.5.2
+        version: 1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
       husky:
         specifier: ^9.1.6
         version: 9.1.6
@@ -919,24 +919,24 @@ packages:
   '@types/ws@8.5.10':
     resolution: {integrity: sha512-vmQSUcfalpIq0R9q7uTo2lXs6eGIpt9wtnLdMv9LVpIjCA/+ufZRozlVoVelIYixx1ugCBKDhn89vnsEGOCx9A==}
 
-  '@unpackjs/bundler-rspack@1.5.1':
-    resolution: {integrity: sha512-z32XwJ3F1oZQ973WIgRnkjOKYNfp1Y7ulEfvTJM/Lrkf9yoJ+yVEOeszDPdBzZMbKJsJNaablxtmqpTeuZJ2Eg==}
+  '@unpackjs/bundler-rspack@1.5.2':
+    resolution: {integrity: sha512-zyoL1XrkqT/SRtzIHUQSWft3x0B+hFHv5/XTJD/J8qCE6ryUxy+bQue52W6Fn3g8iV9bfSsSsZh9Cg6mvAXBRg==}
 
-  '@unpackjs/bundler-webpack@1.5.1':
-    resolution: {integrity: sha512-zRAG0l/HRaz9nux+lE9XOLdrXJsEC1WyaLOyPBr+eAoslFdee293S3J1PpoD0TrFFv9K88cuON4pN4O9pJJaIw==}
+  '@unpackjs/bundler-webpack@1.5.2':
+    resolution: {integrity: sha512-VMeGMH2WZZG39fULk7TyX420jz1j295wLMyY90c+fgoBQABbX89VIuYclOZpWZtRyuLyxERvEm5T0tBA6XLN5A==}
 
-  '@unpackjs/cli@1.5.1':
-    resolution: {integrity: sha512-UAT8bWdr+MfgjZmfI4LD6mVz012iQdNUtE+faFMTPYY6G78u4v+nq0Al2Pt13zdn6ACSod0Fa4TRbfWIGxqxRg==}
+  '@unpackjs/cli@1.5.2':
+    resolution: {integrity: sha512-quUwhMfrUZif8D7Pi9oIoDxNIST/qcWx7C32ccImwGZeGZQdPCIB3jAYKnkK3DwPdk3cXfMSmoL3F+mdOjEikw==}
     hasBin: true
 
-  '@unpackjs/core@1.5.1':
-    resolution: {integrity: sha512-BeTgiGke14b3X+rR9PkeDuyeJVT04kH5w6FIJnFyOTI4CnbLYSUN7030bSzzhGU8DsN8af/D/F+KfFkrL1oAug==}
+  '@unpackjs/core@1.5.2':
+    resolution: {integrity: sha512-+EyGUwoBnbpWEhiGTry83yGI1pAPJBNj9saMOaE1R8//gn5Em0lMxhJyUVUYiKXIgxEp3x8YjlB7aw4xoYUGoA==}
 
-  '@unpackjs/plugin-react@1.5.1':
-    resolution: {integrity: sha512-ci67f6qSis6EqAGb8b/VlEZ8YT0tjE9zVPB8z8Q3ToCefMEw1gaYuV1oOhsvHSkcB9gG2xql9oKt/7qXFhvxow==}
+  '@unpackjs/plugin-react@1.5.2':
+    resolution: {integrity: sha512-iZzu6/qeOkat8VqpJ7Bj7boz+FzVKPAmp4ux/5v1or3ZBLetO/cHMPBGJcKlWkPaAC6PgXDOsv9l88MmGsxpwA==}
 
-  '@unpackjs/shared@1.5.1':
-    resolution: {integrity: sha512-5oJimejcEGUT5rp/AvTZuqhZrtMogb/dlVOGOhSGSEFm2mX26dTRupTfeoD4FGMrza78mRp5cOmX3ipgC6RGlg==}
+  '@unpackjs/shared@1.5.2':
+    resolution: {integrity: sha512-acqrkSBF7pvGpdA9AMcB62yxDynBobNSZ/YS58hr5wA7tpXMx/y3gWeHbn0waQ4XMZpit26QlboI86ud2QXRmA==}
 
   '@webassemblyjs/ast@1.12.1':
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
@@ -2329,9 +2329,6 @@ packages:
     resolution: {integrity: sha512-5HviZNaZcfqP95rwpv+1HDgUamezbqdSYTyzjTvwtJSnIH+3vnbmWsItli8OFEndS984VT55M3jduxZbX351gg==}
     engines: {node: '>=12'}
 
-  picocolors@1.0.1:
-    resolution: {integrity: sha512-anP1Z8qwhkbmu7MFP5iTt+wQKXgwzf7zTyGlcdzabySa9vd0Xt392U0rVmz9poOaBj0uHJKyyo9/upk0HrEQew==}
-
   picocolors@1.1.0:
     resolution: {integrity: sha512-TQ92mBOW0l3LeMeyLV6mzy/kWr8lkd/hp3mTg7wYK7zJhuBStmGMBG0BdeDZS/dZx1IukaX6Bk11zcln25o1Aw==}
 
@@ -3335,7 +3332,7 @@ snapshots:
   '@babel/code-frame@7.24.7':
     dependencies:
       '@babel/highlight': 7.24.7
-      picocolors: 1.0.1
+      picocolors: 1.1.0
 
   '@babel/helper-validator-identifier@7.24.7': {}
 
@@ -4020,10 +4017,10 @@ snapshots:
     dependencies:
       '@types/node': 20.14.9
 
-  '@unpackjs/bundler-rspack@1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)':
+  '@unpackjs/bundler-rspack@1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)':
     dependencies:
       '@rspack/core': 1.0.8(@swc/helpers@0.5.13)
-      '@unpackjs/shared': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/shared': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/helpers'
@@ -4035,9 +4032,9 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@unpackjs/bundler-webpack@1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)':
+  '@unpackjs/bundler-webpack@1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)':
     dependencies:
-      '@unpackjs/shared': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/shared': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
       webpack: 5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))(esbuild@0.24.0)
     transitivePeerDependencies:
       - '@swc/core'
@@ -4051,10 +4048,10 @@ snapshots:
       - utf-8-validate
       - webpack-cli
 
-  '@unpackjs/cli@1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))':
+  '@unpackjs/cli@1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))':
     dependencies:
-      '@unpackjs/core': 1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
-      '@unpackjs/shared': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/core': 1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
+      '@unpackjs/shared': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -4075,12 +4072,12 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  '@unpackjs/core@1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))':
+  '@unpackjs/core@1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))':
     dependencies:
-      '@unpackjs/bundler-rspack': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
-      '@unpackjs/bundler-webpack': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
-      '@unpackjs/plugin-react': 1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
-      '@unpackjs/shared': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/bundler-rspack': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/bundler-webpack': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/plugin-react': 1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
+      '@unpackjs/shared': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
     transitivePeerDependencies:
       - '@rspack/core'
       - '@swc/core'
@@ -4101,13 +4098,13 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  '@unpackjs/plugin-react@1.5.1(@rspack/core@1.0.8(@swc/helpers@0.5.13))(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))':
+  '@unpackjs/plugin-react@1.5.2(@rspack/core@1.0.8(@swc/helpers@0.5.13))(typescript@5.6.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))':
     dependencies:
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.15(react-refresh@0.14.2)(webpack-dev-server@5.1.0(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13))))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
       '@rspack/plugin-react-refresh': 1.0.0(react-refresh@0.14.2)
       '@swc/core': 1.7.28(@swc/helpers@0.5.13)
       '@swc/helpers': 0.5.13
-      '@unpackjs/shared': 1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
+      '@unpackjs/shared': 1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)
       html-webpack-plugin: 5.6.0(@rspack/core@1.0.8(@swc/helpers@0.5.13))(webpack@5.95.0(@swc/core@1.7.28(@swc/helpers@0.5.13)))
       launch-editor: 2.9.1
       react-refresh: 0.14.2
@@ -4129,7 +4126,7 @@ snapshots:
       - webpack-hot-middleware
       - webpack-plugin-serve
 
-  '@unpackjs/shared@1.5.1(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)':
+  '@unpackjs/shared@1.5.2(@swc/core@1.7.28(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)(typescript@5.6.2)':
     dependencies:
       '@rspack/core': 1.0.8(@swc/helpers@0.5.13)
       '@types/less': 3.0.6
@@ -5603,8 +5600,6 @@ snapshots:
   path-type@4.0.0: {}
 
   path-type@5.0.0: {}
-
-  picocolors@1.0.1: {}
 
   picocolors@1.1.0: {}
 
