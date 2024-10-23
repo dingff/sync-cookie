@@ -16,7 +16,7 @@ export default defineConfig({
     filenameHash: false,
   },
   mpa: {
-    layout: '@/layouts/mpa/index.tsx',
+    layout: 'src/layouts/mpa/index.tsx',
   },
   bundlerConfig: {
     entry: {
