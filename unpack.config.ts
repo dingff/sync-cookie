@@ -12,7 +12,7 @@ export default defineConfig({
         to: 'logo',
       },
     ],
-    sourcemap: false,
+    sourceMap: false,
     filenameHash: false,
   },
   mpa: {
