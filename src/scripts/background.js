@@ -1,5 +1,9 @@
+import { STORE_KEY } from '@/common/constants'
+import store from '@/common/store'
+
 chrome.runtime.onInstalled.addListener(() => {
   console.log('Extension installed.')
+  chrome.alarms.create('autoRefreshAlarm', { periodInMinutes: 60 })
 })
 
 function syncCookies(sourceUrl, targetUrl) {
@@ -57,4 +61,21 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
   }
   handles[request.action]()
   return true
+})
+
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === 'autoRefreshAlarm') {
+    store.get(STORE_KEY).then((list) => {
+      list?.forEach(({ sourceUrl }) => {
+        chrome.tabs.query(
+          { url: `${sourceUrl}${!sourceUrl.endsWith('/') ? '/' : ''}*` },
+          (tabs) => {
+            if (tabs?.[0]) {
+              chrome.tabs.reload(tabs[0].id)
+            }
+          },
+        )
+      })
+    })
+  }
 })
