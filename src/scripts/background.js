@@ -66,15 +66,20 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
 chrome.alarms.onAlarm.addListener((alarm) => {
   if (alarm.name === 'autoRefreshAlarm') {
     store.get(STORE_KEY).then((list) => {
-      list?.forEach(({ sourceUrl }) => {
-        chrome.tabs.query(
-          { url: `${sourceUrl}${!sourceUrl.endsWith('/') ? '/' : ''}*` },
-          (tabs) => {
-            if (tabs?.[0]) {
-              chrome.tabs.reload(tabs[0].id)
+      if (!list?.[0]) return
+      const urlsToQuery = list.map(({ sourceUrl }) => {
+        return `${sourceUrl}${!sourceUrl.endsWith('/') ? '/' : ''}*`
+      })
+      chrome.tabs.query({ active: true, currentWindow: true }, (activeTabs) => {
+        const activeTabUrl = activeTabs[0]?.url
+        chrome.tabs.query({ url: urlsToQuery }, (tabs) => {
+          if (!tabs?.[0]) return
+          tabs.forEach((tab) => {
+            if (tab.url !== activeTabUrl) {
+              chrome.tabs.reload(tab.id)
             }
-          },
-        )
+          })
+        })
       })
     })
   }
