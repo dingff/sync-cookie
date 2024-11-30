@@ -35,9 +35,10 @@ store.get(STORE_KEY).then((list) => {
     // 目标地址需要区分端口
     if (enabled && sourceUrl && targetUrl && window.location.origin === new URL(targetUrl).origin) {
       chrome.runtime.sendMessage({ action: 'SYNC_COOKIES', sourceUrl, targetUrl })
+      window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
       setTimeout(() => {
         window.postMessage({ type: 'SET_VALUE', value: syncData }, '*')
-      }, 300)
+      }, 100)
     }
   })
 })

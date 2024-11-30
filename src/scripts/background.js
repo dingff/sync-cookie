@@ -3,7 +3,7 @@ import store from '@/common/store'
 
 chrome.runtime.onInstalled.addListener(() => {
   console.log('Extension installed.')
-  chrome.alarms.create('autoRefreshAlarm', { periodInMinutes: 2 })
+  chrome.alarms.create('autoRefreshAlarm', { periodInMinutes: 3 })
 })
 
 function syncCookies(sourceUrl, targetUrl) {
