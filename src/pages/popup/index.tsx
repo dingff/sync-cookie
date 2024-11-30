@@ -48,7 +48,7 @@ export default function Popup() {
             allowClear
             value={sourceUrl}
             onChange={(e) => {
-              dataSource[index].sourceUrl = e.target.value
+              dataSource[index].sourceUrl = e.target.value?.trim()
               setDataSource([...dataSource])
             }}
           />
@@ -70,7 +70,7 @@ export default function Popup() {
             allowClear
             value={targetUrl}
             onChange={(e) => {
-              dataSource[index].targetUrl = e.target.value
+              dataSource[index].targetUrl = e.target.value?.trim()
               setDataSource([...dataSource])
             }}
           />
