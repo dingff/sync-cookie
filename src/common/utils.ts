@@ -7,6 +7,7 @@ export const debounce = (fn: any, delay = 200) => {
     }, delay)
   }
 }
+
 export const isObject = (v: any) => {
   return Object.prototype.toString.call(v) === '[object Object]'
 }
