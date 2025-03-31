@@ -1,6 +1,7 @@
 import { STORE_KEY } from '@/common/constants'
 import store from '@/common/store'
 import { uuid } from '@/common/utils'
+import Layout from '@/layouts/mpa'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { useUpdateEffect } from 'ahooks'
 import {
@@ -15,6 +16,7 @@ import {
   Typography,
 } from 'antd'
 import { useEffect, useState } from 'react'
+import ReactDOM from 'react-dom/client'
 import styles from './index.module.scss'
 
 type ListItem = {
@@ -179,3 +181,9 @@ export default function Popup() {
     </div>
   )
 }
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <Layout>
+    <Popup />
+  </Layout>,
+)
