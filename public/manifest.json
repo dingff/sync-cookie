@@ -1,10 +1,10 @@
 {
   "description": "Sync cookie between tabs.",
   "icons": {
-    "128": "logo/logo.png",
-    "16": "logo/logo.png",
-    "32": "logo/logo.png",
-    "48": "logo/logo.png"
+    "128": "./logo.png",
+    "16": "./logo.png",
+    "32": "./logo.png",
+    "48": "./logo.png"
   },
   "action": {
     "default_popup": "popup.html"
@@ -31,5 +31,5 @@
   "permissions": ["tabs", "storage", "cookies", "alarms"],
   "host_permissions": ["<all_urls>"],
   "update_url": "https://clients2.google.com/service/update2/crx",
-  "version": "0.0.1"
+  "version": "1.0.0"
 }

@@ -1,29 +1,21 @@
-import { defineConfig } from '@unpackjs/cli'
+import { defineConfig } from '@unpackjs/core'
+import { pluginCrx } from '@unpackjs/plugin-crx'
 import { pluginReact } from '@unpackjs/plugin-react'
 
 export default defineConfig({
+  sourceMap: false,
   build: {
-    copy: [
-      {
-        from: 'manifest.json',
-      },
-      {
-        from: 'src/assets/logo',
-        to: 'logo',
-      },
-    ],
-    sourceMap: false,
     filenameHash: false,
   },
   mpa: {
     layout: 'src/layouts/mpa/index.tsx',
   },
-  bundlerConfig: {
+  rspack: {
     entry: {
       background: './src/scripts/background.js',
       content: './src/scripts/content.js',
       inject: './src/scripts/inject.js',
     },
   },
-  plugins: [pluginReact()],
+  plugins: [pluginReact(), pluginCrx()],
 })

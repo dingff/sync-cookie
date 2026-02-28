@@ -1,6 +1,3 @@
-import { STORE_KEY } from '@/common/constants'
-import store from '@/common/store'
-import { uuid } from '@/common/utils'
 import { InfoCircleOutlined } from '@ant-design/icons'
 import { useUpdateEffect } from 'ahooks'
 import {
@@ -15,6 +12,9 @@ import {
   Typography,
 } from 'antd'
 import { useEffect, useState } from 'react'
+import { STORE_KEY } from '@/common/constants'
+import store from '@/common/store'
+import { uuid } from '@/common/utils'
 import styles from './index.module.scss'
 
 type ListItem = {
