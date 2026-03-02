@@ -33,13 +33,19 @@
     "@commitlint/config-conventional": "^20.4.2",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
-    "@unpackjs/core": "^4.7.0",
-    "@unpackjs/plugin-crx": "^0.2.0",
-    "@unpackjs/plugin-react": "^4.6.0",
+    "@unpackjs/core": "^4.7.1",
+    "@unpackjs/plugin-crx": "^0.2.1",
+    "@unpackjs/plugin-react": "^4.6.1",
     "husky": "^9.1.7",
-    "lint-staged": "^16.2.7",
+    "lint-staged": "^16.3.1",
     "prettier": "^3.8.1",
     "sass-embedded": "^1.97.3",
     "typescript": "^5.9.3"
-  }
+  },
+  "browserslist": [
+    "chrome >= 110",
+    "edge >= 110",
+    "firefox >= 115",
+    "safari >= 17"
+  ]
 }
