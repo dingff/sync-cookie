@@ -6,19 +6,6 @@
     "dev": "unpack dev",
     "prepare": "husky"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json}": [
-      "biome check --write --no-errors-on-unmatched"
-    ],
-    "*.{css,scss,less}": [
-      "prettier --write"
-    ]
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
   "dependencies": {
     "@ant-design/icons": "^6.1.0",
     "ahooks": "^3.9.6",
@@ -28,7 +15,6 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.4",
     "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.2",
     "@types/react": "18.3.12",
@@ -38,9 +24,21 @@
     "@unpackjs/plugin-react": "^4.6.1",
     "husky": "^9.1.7",
     "lint-staged": "^16.3.1",
-    "prettier": "^3.8.1",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0",
     "sass-embedded": "^1.97.3",
     "typescript": "^5.9.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json}": [
+      "oxlint --fix"
+    ],
+    "*": "oxfmt --no-error-on-unmatched-pattern"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "browserslist": [
     "chrome >= 110",
